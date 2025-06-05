@@ -1,0 +1,41 @@
+<mat-toolbar color="primary" class="toolbar">
+    <div class="toolbar-left">
+      <img src="assets/logo.png" alt="Logo" class="logo" />
+      <span class="nombre-veterinario">Nombre Veterinario</span>
+    </div>
+    <span class="spacer"></span>
+    <mat-form-field appearance="fill" class="search-field">
+      <mat-label>BÃºsqueda</mat-label>
+      <input matInput type="text" />
+      <button mat-icon-button matSuffix>
+       <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </mat-toolbar>
+  
+  <mat-toolbar color="accent">
+    <button mat-button [matMenuTriggerFor]="menu">MenÃº desplegable</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Inicio</button>
+      <button mat-menu-item>Servicios</button>
+      <button mat-menu-item>Seguros</button>
+      <button mat-menu-item>Contacto</button>
+    </mat-menu>
+  </mat-toolbar>
+  
+  <div class="banner">
+    <h2>TÃ­tulo del artÃ­culo</h2>
+    <img src="assets/banner-seguro.jpg" alt="Foto del artÃ­culo" />
+    <p><i>Por Autor del artÃ­culo</i></p>
+  </div>
+  
+ <div class="contenido">
+    <p>
+      Texto del artÃ­culo relacionado con el sector veterinario. En este caso, la
+      informaciÃ³n puede estar orientada a seguros veterinarios y su importancia.
+    </p>
+  </div>
+  
+  <footer class="footer">
+    <p>Redes sociales | Contacto | TÃ©rminos y condiciones</p>
+  </footer>

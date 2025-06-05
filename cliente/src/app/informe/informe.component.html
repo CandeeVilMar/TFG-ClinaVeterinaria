@@ -1,0 +1,26 @@
+<div class="informe-container">
+    <section class="encabezado mat-elevation-z2">
+      <h2>{{ nombreConsulta }}</h2>
+      <p>{{ datosCentro }}</p>
+    </section>
+  
+    <section class="contenido mat-elevation-z2">
+      <div class="mascota-info">
+        <img [src]="mascota.imagen" alt="Imagen de la mascota">
+        <div class="datos">
+          <p><strong>Nombre:</strong> {{ mascota.nombre }}</p>
+          <p><strong>Especie:</strong> {{ mascota.especie }}</p>
+          <p><strong>Raza:</strong> {{ mascota.raza }}</p>
+          <p><strong>Edad:</strong> {{ mascota.edad }}</p>
+        </div>
+      </div>
+  
+      <div class="motivo-consulta">
+        <h3>Motivo de la consulta</h3>
+        <div class="motivo-texto">
+          {{ motivo }}
+        </div>
+        <button mat-raised-button color="accent" (click)="generarPDF()">Generar PDF</button>
+      </div>
+    </section>
+  </div>

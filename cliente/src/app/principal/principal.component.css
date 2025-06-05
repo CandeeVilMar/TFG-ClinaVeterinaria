@@ -1,0 +1,38 @@
+.main-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: calc(100vh - 160px);
+  }
+  
+  .content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+  }
+  
+  .image-box img {
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  .info-card {
+    max-width: 400px;
+    padding: 20px;
+    background-color: #e0e0e0;
+  }
+  
+  .footer {
+    background-color: #eeeeee;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .footer-text {
+    font-weight: normal;
+  }

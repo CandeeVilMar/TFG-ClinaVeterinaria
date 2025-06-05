@@ -1,0 +1,46 @@
+<div id="paginaRegistro">
+
+  <div class="form-section">
+    <div class="form-text">Registro de dueÃ±o y mascota</div>
+
+    <div class="register-form-container">
+      <form (ngSubmit)="registro()" #registerForm="ngForm" class="form-grid">
+
+        <!-- Columna Izquierda -->
+        <div class="form-column">
+          <label for="duenoNombre">Nombre del dueÃ±o</label>
+          <input type="text" id="duenoNombre" name="duenoNombre" [(ngModel)]="user.ownerName" required>
+
+          <label for="nombreMascota">Nombre de la mascota</label>
+          <input type="text" id="nombreMascota" name="nombreMascota" [(ngModel)]="user.petName" required>
+          <label for="correo">Correo electrÃ³nico</label>
+          <input type="email" id="correo" name="correo" [(ngModel)]="user.email" required>
+
+          <label for="edadMascota">Edad de la mascota</label>
+          <input type="number" id="edadMascota" name="edadMascota" [(ngModel)]="user.petAge" required>
+        </div>
+
+        <!-- Columna Derecha -->
+        <div class="form-column">
+          <label for="contrasena">ContraseÃ±a</label>
+          <input type="password" id="contrasena" name="contrasena" [(ngModel)]="user.password" required>
+
+          <label for="repetirContrasena">Repetir contraseÃ±a</label>
+          <input type="password" id="repetirContrasena" name="repetirContrasena" [(ngModel)]="user.repeatPassword" required>
+
+          <label for="numMascotas">NÃºmero total de mascotas</label>
+          <select id="numMascotas" name="numMascotas" [(ngModel)]="user.totalPets" required>
+            <option *ngFor="let n of [1,2,3,4,5]" [value]="n">{{ n }}</option>
+          </select>
+
+          <button type="submit" [disabled]="registerForm.invalid">Registrarse</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <div class="footer">
+    Pie de pÃ¡gina: <span style="font-weight: normal;">Redes sociales, contacto, tÃ©rminos y condiciones</span>
+  </div>
+</div>

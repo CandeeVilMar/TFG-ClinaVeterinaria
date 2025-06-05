@@ -1,0 +1,41 @@
+<mat-toolbar color="primary" class="navbar-container">
+  <!-- Logo -->
+  <div class="logo-container">
+    <a href="/">
+      <img src="assets/img/logoVete.png" alt="Logo Veterinaria" style="height: 40px;" />
+    </a>
+  </div>
+
+  <!-- Nombre Veterinario -->
+  <div class="nombre-container">
+    <span>ClÃ­nica Veterinaria Patitas Salvajes</span>
+  </div>
+
+  <!-- BÃºsqueda -->
+  <div class="busqueda-container">
+    <mat-form-field appearance="outline">
+      <mat-label>BÃºsqueda</mat-label>
+      <input matInput type="text" />
+      <button mat-icon-button matSuffix>
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+</mat-toolbar>
+
+<!-- MenÃº desplegable -->
+<mat-toolbar color="primary" class="submenu-container">
+  <button mat-button routerLink="/inicio">Inicio</button>
+  <button mat-button routerLink="/informacionVet">Sobre Nosotros</button>
+  <button mat-button routerLink="/infoSeguros">Seguros</button>
+  <button mat-button routerLink="/paginaArticulos">ArtÃ­culos</button>
+  <button mat-button routerLink="/sugerencias">Sugerencias</button>
+
+  <!-- Botones de sesiÃ³n -->
+  <span class="spacer"></span>
+  <div id="button-container">
+    <button *ngIf="!isAuthenticated" mat-button (click)="goToLogin()">Iniciar SesiÃ³n</button>
+    <button *ngIf="!isAuthenticated" mat-button (click)="goToRegister()">Registrarse</button>
+    <button *ngIf="isAuthenticated" mat-button (click)="logout()">Cerrar SesiÃ³n</button>
+  </div>
+</mat-toolbar>

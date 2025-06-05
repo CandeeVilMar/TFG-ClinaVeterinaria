@@ -1,0 +1,14 @@
+<div class="informacion-container">
+  <section class="descripcion mat-elevation-z2">
+    <h2>QuiÃ©nes somos</h2>
+    <p>{{ descripcion }}</p>
+  </section>
+
+  <section class="empleados">
+    <div class="empleado-card mat-elevation-z2" *ngFor="let emp of empleados">
+      <img [src]="emp.imagen" alt="Foto de {{ emp.nombre }}">
+      <h4>{{ emp.nombre }}</h4>
+      <p>{{ emp.especialidad }}</p>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,23 @@
+.sugerencia-container {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .intro-text,
+  .formulario {
+    padding: 1.5rem;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+  }
+  
+  .formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  button[type="submit"] {
+    align-self: flex-end;
+  }

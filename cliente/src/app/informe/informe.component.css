@@ -1,0 +1,57 @@
+.informe-container {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .encabezado,
+  .contenido {
+    padding: 1.5rem;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+  }
+  
+  .contenido {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .mascota-info {
+    flex: 1 1 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .mascota-info img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  .datos {
+    text-align: center;
+    font-size: 0.95rem;
+  }
+  
+  .motivo-consulta {
+    flex: 3 1 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .motivo-texto {
+    padding: 1rem;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    min-height: 200px;
+    border-radius: 4px;
+  }
+  
+  button {
+    align-self: flex-end;
+  }
