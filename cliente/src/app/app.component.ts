@@ -9,4 +9,6 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [NavbarComponent, RouterModule]
 })
-export class AppComponent { }
+export class AppComponent {
+  title: any;
+}
