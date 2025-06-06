@@ -13,27 +13,27 @@ import { MatCardModule } from '@angular/material/card';
   ]
 })
 export class InformacionVetComponent {
-  descripcion = 'Centro Veterinario especializado en atenciÃ³n integral para mascotas, con mÃ¡s de 10 aÃ±os de experiencia.';
+  descripcion = 'Centro Veterinario especializado en atención integral para mascotas, con más de 10 años de experiencia.';
 
   empleados = [
    {
-      nombre: 'Dra. Laura GarcÃ­a',
+      nombre: 'Dra. Laura Garcí­a',
       especialidad: 'Veterinaria general',
       imagen: ''
     },
     {
-      nombre: 'Dr. Miguel RÃ­os',
-     especialidad: 'CirugÃ­a y ortopedia',
+      nombre: 'Dr. Miguel Rí­os',
+     especialidad: 'Cirugí­a y ortopedia',
       imagen: ''
     },
     {
-      nombre: 'TÃ©c. Ana LÃ³pez',
+      nombre: 'Dra. Ana López',
       especialidad: 'Asistencia veterinaria',
       imagen: ''
     },
     {
       nombre: 'Dr. Pablo SÃ¡nchez',
-      especialidad: 'DiagnÃ³stico por imagen',
+      especialidad: 'Diagnóstico por imagen',
       imagen: ''
     }
   ];
