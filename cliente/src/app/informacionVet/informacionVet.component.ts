@@ -16,25 +16,25 @@ export class InformacionVetComponent {
   descripcion = 'Centro Veterinario especializado en atención integral para mascotas, con más de 10 años de experiencia.';
 
   empleados = [
-   {
-      nombre: 'Dra. Laura Garcí­a',
-      especialidad: 'Veterinaria general',
-      imagen: ''
+    {
+      nombre: 'Dra. Laura García',
+      especialidad: 'Veterinaria general y dermatología',
+      imagen: '../../assets/img/laura.jpg'
     },
     {
-      nombre: 'Dr. Miguel Rí­os',
-     especialidad: 'Cirugí­a y ortopedia',
-      imagen: ''
+      nombre: 'Dr. Miguel Ríos',
+      especialidad: 'Cirugía y ortopedia',
+      imagen: '../../assets/img/miguel.png'
     },
     {
-      nombre: 'Dra. Ana López',
+      nombre: 'Téc. Ana López',
       especialidad: 'Asistencia veterinaria',
-      imagen: ''
+      imagen: '../../assets/img/ana.jpg'
     },
     {
-      nombre: 'Dr. Pablo SÃ¡nchez',
+      nombre: 'Dr. Pablo Sánchez',
       especialidad: 'Diagnóstico por imagen',
-      imagen: ''
+      imagen: '../../assets/img/pablo.jpg'
     }
   ];
 }

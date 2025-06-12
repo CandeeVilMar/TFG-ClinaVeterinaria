@@ -1,38 +1,121 @@
+/* Contenedor principal */
 .main-container {
-    padding: 20px;
-    background-color: #f9f9f9;
-    min-height: calc(100vh - 160px);
-  }
-  
+  padding: 20px;
+  background-color: #f9f9f9;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Contenedor de contenido */
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* Estira los hijos para igualar altura */
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  flex-grow: 1;
+}
+
+/* Imagen destacada */
+.image-box {
+  flex: 1 1 600px;
+  max-width: 600px;
+  display: flex;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%; /* Imagen ocupa toda la altura del contenedor */
+  object-fit: cover; /* Mantiene proporciones sin deformar */
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Tarjeta de información */
+.info-card {
+  flex: 1 1 500px;
+  padding: 30px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+/* Pie de página */
+.footer {
+  background-color: #b9eae8;
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+.footer-text {
+  font-weight: normal;
+}
+
+/* Redes sociales con separación */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 16px;
+}
+
+.social-links i {
+  margin-right: 5px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
   .content-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 40px;
-    flex-wrap: wrap;
-    margin-top: 30px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
   }
-  
-  .image-box img {
-    width: 400px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  }
-  
+
+  .image-box,
   .info-card {
-    max-width: 400px;
-    padding: 20px;
-    background-color: #e0e0e0;
+    flex: 1 1 100%;
+    max-width: 100%;
+    height: auto;
   }
-  
+
+  .image-box img {
+    height: auto;
+    object-fit: contain;
+  }
+
+  .info-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-container {
+    padding: 16px;
+  }
+
   .footer {
-    background-color: #eeeeee;
-    padding: 20px;
-    text-align: center;
-    font-weight: bold;
+    font-size: 14px;
+    padding: 16px;
   }
-  
-  .footer-text {
-    font-weight: normal;
+
+  .info-card p,
+  .info-card li {
+    font-size: 14px;
   }
+
+  .info-card mat-card-title {
+    font-size: 18px;
+  }
+}

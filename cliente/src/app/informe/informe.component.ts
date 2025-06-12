@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+
+// Declaro html2pdf como una variable global
+declare var html2pdf: any;
 
 @Component({
   selector: 'app-informe',
@@ -13,14 +16,23 @@ export class InformeComponent {
     nombre: 'Firulais',
     especie: 'Perro',
     raza: 'Labrador',
-    edad: '5 aÃ±os',
+    edad: '5 años',
     imagen: 'https://via.placeholder.com/200'
   };
 
-  motivo = 'El paciente presenta sÃ­ntomas de letargo, inapetencia y vÃ³mitos intermitentes desde hace dos dÃ­as.';
+  motivo = 'El paciente presenta síntomas de letargo, inapetencia y vómitos intermitentes desde hace dos días.';
+
+  @ViewChild('contenidoInforme', { static: false }) contenidoInforme!: ElementRef;
 
   generarPDF() {
-    // Intentar poner para general el pdf del informe de la mascota
-    console.log('Generando PDF...');
+    const options = {
+      margin: 10,
+      filename: `${this.mascota.nombre}_informe.pdf`,
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().from(this.contenidoInforme.nativeElement).set(options).save();
   }
 }

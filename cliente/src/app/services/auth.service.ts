@@ -1,51 +1,31 @@
-import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class AuthService {
-  private authStatus = new BehaviorSubject<boolean>(false);
+  private api = 'http://localhost:3000/login';
 
-constructor(@Inject(PLATFORM_ID) private platformId: Object) {
-   if (isPlatformBrowser(this.platformId)) {
-      const token = localStorage.getItem('token');
-      this.authStatus.next(!!token);
-    }
+  constructor(private http: HttpClient, private router: Router) {}
+
+  login(email: string, password: string) {
+    return this.http.post<{ token: string, rol: string }>(this.api, { email, password });
   }
 
-  isAuthenticated(): boolean {
-    if (isPlatformBrowser(this.platformId)) {
-      return !!localStorage.getItem('token');
-    }
-    return false;
+  guardarToken(token: string) {
+    localStorage.setItem('token', token);
   }
 
-  getAuthStatus(): Observable<boolean> {
-    return this.authStatus.asObservable();
+  obtenerRolDesdeToken(): string | null {
+    const token = localStorage.getItem('token');
+    if (!token) return null;
+
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    return payload.rol;
   }
 
-  login(token: string, user: any): void {
-    if (isPlatformBrowser(this.platformId)) {
-      localStorage.setItem('token', token);
-      localStorage.setItem('rol', user.rol); // Guardamos el rol
-      this.authStatus.next(true);
-    }
-  }
-
-  logout(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      localStorage.removeItem('token');
-      localStorage.removeItem('rol'); // Quitamos tambiÃ©n el rol
-      this.authStatus.next(false);
-    }
-  }
-
-  getRole(): string | null {
-    if (isPlatformBrowser(this.platformId)) {
-      return localStorage.getItem('rol');
-    }
-    return null;
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
   }
 }

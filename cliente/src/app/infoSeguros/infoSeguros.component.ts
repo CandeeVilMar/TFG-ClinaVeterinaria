@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card'; // ✅ Importa MatCardModule
 
 @Component({
   selector: 'app-info-seguro',
@@ -17,7 +18,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatIconModule,
     MatMenuModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ],
   templateUrl: './infoSeguros.component.html',
   styleUrls: ['./infoSeguros.component.css']

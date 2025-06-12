@@ -2,28 +2,34 @@
   font-family: Arial, sans-serif;
 }
 
+/* Sección del formulario */
 .form-section {
   padding: 30px;
-  background-color: #f0f0f0;
+  background-color: #f0fdfd;
   text-align: center;
 }
 
+/* Texto superior */
 .form-text {
   margin-bottom: 20px;
-  background-color: #d9d9d9;
+  background-color: #ece9ff;
   padding: 15px;
   font-size: 18px;
   font-weight: bold;
+  color: #2e2a3c;
 }
 
+/* Contenedor del formulario */
 .register-form-container {
-  background-color: #e0e0e0;
+  background-color: #fffaf5;
   padding: 30px;
   margin: 0 auto;
   max-width: 1000px;
   border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(249, 178, 97, 0.2);
 }
 
+/* Distribución del formulario */
 .form-grid {
   display: flex;
   justify-content: space-between;
@@ -31,6 +37,7 @@
   gap: 20px;
 }
 
+/* Columnas del formulario */
 .form-column {
   flex: 1;
   min-width: 300px;
@@ -42,30 +49,61 @@
 .form-column label {
   font-weight: bold;
   text-align: left;
+  color: #2e2a3c;
 }
 
-input, select, button {
+/* Campos de entrada */
+input,
+select,
+button {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  background-color: #ffffff;
 }
 
+/* Botón */
 button {
-  background-color: #1b7ad3;
+  background-color: #fba44a;
   color: white;
   border: none;
   cursor: pointer;
   font-size: 16px;
   margin-top: 15px;
+  transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: #b7bcff;
+  background-color: #fb923c;
 }
 
+/* Pie de página */
 .footer {
-  background-color: #f0f0f0;
-  padding: 15px;
+  background-color: #b9eae8;
+  padding: 20px;
   text-align: center;
-  font-size: 14px;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+.footer-text {
+  font-weight: normal;
+}
+
+/* Redes sociales con separación */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 16px;
+}
+
+.social-links i {
+  margin-right: 5px;
 }

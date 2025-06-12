@@ -1,41 +1,47 @@
-<mat-toolbar color="primary" class="navbar-container">
-  <!-- Logo -->
-  <div class="logo-container">
-    <a href="/">
-      <img src="assets/img/logoVete.png" alt="Logo Veterinaria" style="height: 40px;" />
-    </a>
-  </div>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #sidenav
+    mode="over"
+    class="sidenav"
+    [ngClass]="{ 'full-screen-menu': isSmallScreen }"
+    [autoFocus]="false"
+  >
+    <mat-nav-list>
+      <a mat-list-item routerLink="/principal" (click)="sidenav.close()">Inicio</a>
+      <a mat-list-item routerLink="/informacionVet" (click)="sidenav.close()">Información Veterinario</a>
+      <a mat-list-item routerLink="/infoSeguros" (click)="sidenav.close()">Información Seguros</a>
+      <a mat-list-item routerLink="/sugerencia" (click)="sidenav.close()">Sugerencia</a>
+      <a mat-list-item routerLink="/registro" (click)="sidenav.close()">Registro</a>
+      <a mat-list-item routerLink="/login" (click)="sidenav.close()">Iniciar Sesión</a>
 
-  <!-- Nombre Veterinario -->
-  <div class="nombre-container">
-    <span>ClÃ­nica Veterinaria Patitas Salvajes</span>
-  </div>
+      <!-- Enlace solo para admin -->
+      <a *ngIf="isAdmin" mat-list-item routerLink="/agregar-mascota" (click)="sidenav.close()">
+        Agregar Mascota
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
 
-  <!-- BÃºsqueda -->
-  <div class="busqueda-container">
-    <mat-form-field appearance="outline">
-      <mat-label>BÃºsqueda</mat-label>
-      <input matInput type="text" />
-      <button mat-icon-button matSuffix>
-        <mat-icon>search</mat-icon>
+  <mat-sidenav-content>
+    <mat-toolbar class="custom-toolbar">
+      <img src="assets/img/logoVete.png" class="logo" alt="Logo" />
+      <span class="titulo">Clínica Patitas Felices</span>
+      <span class="spacer"></span>
+
+      <nav class="nav-links">
+        <button mat-button routerLink="/principal">Inicio</button>
+        <button mat-button routerLink="/informacionVet">Información Veterinario</button>
+        <button mat-button routerLink="/infoSeguros">Información Seguros</button>
+        <button mat-button routerLink="/sugerencia">Sugerencia</button>
+        <button mat-button routerLink="/registro">Registro</button>
+        <button mat-button routerLink="/login">Iniciar Sesión</button>
+
+        <!-- Botón solo para admin -->
+        <button *ngIf="isAdmin" mat-button routerLink="/agregar-mascota">Agregar Mascota</button>
+      </nav>
+
+      <button mat-icon-button (click)="sidenav.toggle()" class="menu-button" aria-label="Menú">
+        <mat-icon>menu</mat-icon>
       </button>
-    </mat-form-field>
-  </div>
-</mat-toolbar>
-
-<!-- MenÃº desplegable -->
-<mat-toolbar color="primary" class="submenu-container">
-  <button mat-button routerLink="/inicio">Inicio</button>
-  <button mat-button routerLink="/informacionVet">Sobre Nosotros</button>
-  <button mat-button routerLink="/infoSeguros">Seguros</button>
-  <button mat-button routerLink="/paginaArticulos">ArtÃ­culos</button>
-  <button mat-button routerLink="/sugerencias">Sugerencias</button>
-
-  <!-- Botones de sesiÃ³n -->
-  <span class="spacer"></span>
-  <div id="button-container">
-    <button *ngIf="!isAuthenticated" mat-button (click)="goToLogin()">Iniciar SesiÃ³n</button>
-    <button *ngIf="!isAuthenticated" mat-button (click)="goToRegister()">Registrarse</button>
-    <button *ngIf="isAuthenticated" mat-button (click)="logout()">Cerrar SesiÃ³n</button>
-  </div>
-</mat-toolbar>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>

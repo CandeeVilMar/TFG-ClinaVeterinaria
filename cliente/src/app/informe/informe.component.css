@@ -1,57 +1,171 @@
 .informe-container {
-    padding: 2rem;
-    display: flex;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #fff;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.encabezado,
+.contenido {
+  padding: 1.5rem;
+  background-color: #f5f5f5; /* Se mantiene */
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.encabezado h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.5rem;
+}
+
+.encabezado h2 {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.contenido {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.mascota-info {
+  flex: 1 1 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mascota-info img {
+  width: 100%;
+  max-width: 200px;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: 2px solid #ccc;
+}
+
+.datos {
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.motivo-consulta {
+  flex: 3 1 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.motivo-consulta h3 {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.motivo-texto {
+  padding: 1rem;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  min-height: 200px;
+  border-radius: 4px;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+button {
+  align-self: flex-end;
+  background-color: #3498db;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #2c80b4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contenido {
     flex-direction: column;
-    gap: 2rem;
   }
-  
+
+  .motivo-consulta,
+  .mascota-info {
+    flex: 1 1 100%;
+  }
+
+  .motivo-texto {
+    min-height: 150px;
+  }
+
+  .mascota-info img {
+    max-width: 150px;
+  }
+
+  button {
+    align-self: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .informe-container {
+    padding: 1rem;
+  }
+
   .encabezado,
   .contenido {
-    padding: 1.5rem;
-    background-color: #f5f5f5;
-    border-radius: 8px;
-  }
-  
-  .contenido {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-  
-  .mascota-info {
-    flex: 1 1 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .mascota-info img {
-    width: 100%;
-    max-width: 200px;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-  }
-  
-  .datos {
-    text-align: center;
-    font-size: 0.95rem;
-  }
-  
-  .motivo-consulta {
-    flex: 3 1 500px;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .motivo-texto {
     padding: 1rem;
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    min-height: 200px;
-    border-radius: 4px;
   }
-  
-  button {
-    align-self: flex-end;
+
+  .datos {
+    font-size: 0.9rem;
   }
+}
+
+/* Pie de página */
+.footer {
+  background-color: #b9eae8; /* Se mantiene */
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 40px;
+  border-radius: 6px;
+}
+
+.footer-text {
+  font-weight: normal;
+}
+
+/* Redes sociales con separación */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 16px;
+}
+
+.social-links i {
+  margin-right: 5px;
+}

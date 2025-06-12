@@ -10,4 +10,5 @@ RUN npm install && npm run build --prod
 
 FROM nginx:alpine
 
-COPY --from=build /app/dist /usr/share/nginx/html
+COPY --from=build /app/dist/cliente/browser /usr/share/nginx/html
+

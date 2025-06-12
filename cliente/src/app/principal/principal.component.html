@@ -1,28 +1,72 @@
 <div class="main-container">
-
   <div class="content-wrapper">
     <!-- Imagen destacada -->
     <div class="image-box">
-      <img src="assets/img/veterinaria.jpg" alt="Imagen veterinaria" />
+      <img src="../assets/img/VetPatFelices.png" alt="Imagen veterinaria" />
     </div>
 
-    <!-- InformaciÃ³n General -->
+    <!-- Información General -->
     <mat-card class="info-card">
-      <mat-card-title>InformaciÃ³n General</mat-card-title>
+      <mat-card-title>Información General</mat-card-title>
       <mat-card-content>
         <p>
-          Bienvenido a nuestra clÃ­nica veterinaria. Ofrecemos servicios de consulta, vacunaciÃ³n,
-          cirugÃ­a y atenciÃ³n especializada para tus mascotas. Contamos con profesionales calificados
-          y la mejor tecnologÃ­a.
+          Bienvenido a nuestra clínica veterinaria <strong>Patitas Felices</strong>, un centro moderno y
+          acogedor dedicado exclusivamente al cuidado integral de tus mascotas.
+        </p>
+
+        <p><strong>¿Por qué elegirnos?</strong></p>
+        <ul>
+          <li>Veterinarios con experiencia y vocación.</li>
+          <li>Instalaciones modernas y tecnología avanzada.</li>
+          <li>Atención personalizada y seguimiento continuo.</li>
+        </ul>
+
+        <p><strong>Servicios disponibles:</strong></p>
+        <ul>
+          <li>Consulta médica general y especializada.</li>
+          <li>Vacunación y desparasitación.</li>
+          <li>Cirugías y hospitalización.</li>
+          <li>Emergencias 24/7.</li>
+          <li>Radiografía, ecografía, análisis clínicos.</li>
+          <li>Odontología veterinaria.</li>
+        </ul>
+
+        <p><strong>Horarios:</strong> Lunes a viernes de 9:00 a 20:00. Sábados de 10:00 a 14:00.</p>
+        <p><strong>Dirección:</strong> Calle San Marcos, San Fernando</p>
+        <p><strong>Teléfono:</strong> 956 45 78 96</p>
+        <p><strong>Email:</strong> contactopatitasfelices&#64;clinicaveterinaria.com</p>
+
+        <p>
+          También ofrecemos consultas a domicilio y planes de salud personalizados.
+        </p>
+
+        <p>
+          <a [routerLink]="['/informacionVet']">Haz clic aquí para conocernos mejor</a>.
         </p>
       </mat-card-content>
     </mat-card>
   </div>
-
 </div>
 
 <!-- Footer -->
 <footer class="footer">
-  Pie de pÃ¡gina: 
-  <span class="footer-text">Redes sociales, contacto, tÃ©rminos y condiciones</span>
+  <div class="footer-text">
+    <div class="social-links">
+      <a href="https://www.instagram.com/clinicapatitasfelices" target="_blank">
+        <i class="fab fa-instagram"></i> &#64;clinicapatitasfelices
+      </a>
+      <a href="https://www.facebook.com/clinicapatitasfelices" target="_blank">
+        <i class="fab fa-facebook"></i> &#64;clinicapatitasfelices
+      </a>
+      <a href="https://www.twitter.com/clinicapatitasfelices" target="_blank">
+        <i class="fab fa-twitter"></i> &#64;clinicapatitasfelices
+      </a>
+    </div>
+    <div>
+      Contacto: patitasfelices&#64;clinicaveterinaria.com
+    </div>
+    <div>
+      Debe aceptar términos y condiciones
+    </div>
+  </div>
 </footer>

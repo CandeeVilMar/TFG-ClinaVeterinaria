@@ -1,19 +1,19 @@
 <div id="paginaRegistro">
 
   <div class="form-section">
-    <div class="form-text">Registro de dueÃ±o y mascota</div>
+    <div class="form-text">Registro de dueño y mascota</div>
 
     <div class="register-form-container">
       <form (ngSubmit)="registro()" #registerForm="ngForm" class="form-grid">
 
         <!-- Columna Izquierda -->
         <div class="form-column">
-          <label for="duenoNombre">Nombre del dueÃ±o</label>
+          <label for="duenoNombre">Nombre del dueño</label>
           <input type="text" id="duenoNombre" name="duenoNombre" [(ngModel)]="user.ownerName" required>
 
           <label for="nombreMascota">Nombre de la mascota</label>
           <input type="text" id="nombreMascota" name="nombreMascota" [(ngModel)]="user.petName" required>
-          <label for="correo">Correo electrÃ³nico</label>
+          <label for="correo">Correo electrónico</label>
           <input type="email" id="correo" name="correo" [(ngModel)]="user.email" required>
 
           <label for="edadMascota">Edad de la mascota</label>
@@ -22,13 +22,13 @@
 
         <!-- Columna Derecha -->
         <div class="form-column">
-          <label for="contrasena">ContraseÃ±a</label>
+          <label for="contrasena">Contraseña</label>
           <input type="password" id="contrasena" name="contrasena" [(ngModel)]="user.password" required>
 
-          <label for="repetirContrasena">Repetir contraseÃ±a</label>
+          <label for="repetirContrasena">Repetir contraseña</label>
           <input type="password" id="repetirContrasena" name="repetirContrasena" [(ngModel)]="user.repeatPassword" required>
 
-          <label for="numMascotas">NÃºmero total de mascotas</label>
+          <label for="numMascotas">Número total de mascotas</label>
           <select id="numMascotas" name="numMascotas" [(ngModel)]="user.totalPets" required>
             <option *ngFor="let n of [1,2,3,4,5]" [value]="n">{{ n }}</option>
           </select>
@@ -40,7 +40,25 @@
     </div>
   </div>
 
-  <div class="footer">
-    Pie de pÃ¡gina: <span style="font-weight: normal;">Redes sociales, contacto, tÃ©rminos y condiciones</span>
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-text">
+    <div class="social-links">
+      <a href="https://www.instagram.com/clinicapatitasfelices" target="_blank">
+        <i class="fab fa-instagram"></i> &#64;clinicapatitasfelices
+      </a>
+      <a href="https://www.facebook.com/clinicapatitasfelices" target="_blank">
+        <i class="fab fa-facebook"></i> &#64;clinicapatitasfelices
+      </a>
+      <a href="https://www.twitter.com/clinicapatitasfelices" target="_blank">
+        <i class="fab fa-twitter"></i> &#64;clinicapatitasfelices
+      </a>
+    </div>
+    <div>
+      Contacto: patitasfelices&#64;clinicaveterinaria.com
+    </div>
+    <div>
+      Debe aceptar términos y condiciones
+    </div>
   </div>
-</div>
+</footer>

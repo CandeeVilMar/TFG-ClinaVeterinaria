@@ -1,15 +1,13 @@
 services:
   db:
-    image: mariadb:10.5
-    container_name: mariadb
+    image: mysql
+    container_name: mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: clinica_veterinaria
-    volumes:
-      - ./server/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
-      - mynetwork
+      - backend
 
   server:
     build:
@@ -24,7 +22,8 @@ services:
       DB_PASSWORD: password
       DB_NAME: clinica_veterinaria
     networks:
-      - mynetwork
+      - backend
+      - frontend
 
   cliente:
     build:
@@ -36,8 +35,10 @@ services:
     depends_on:
       - server
     networks:
-      - mynetwork
+      - frontend
 
 networks:
-  mynetwork:
+  backend:
+    driver: bridge
+  frontend:
     driver: bridge

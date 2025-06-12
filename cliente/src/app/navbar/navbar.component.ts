@@ -1,56 +1,50 @@
-import { Component } from '@angular/core';
-import { AuthService } from '../services/auth.service';
-import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
-
-// Angular Material
-import { MatCardModule } from '@angular/material/card';
+import { Component, OnInit } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { BreakpointObserver, Breakpoints, LayoutModule } from '@angular/cdk/layout';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
   imports: [
     CommonModule,
-    MatCardModule,
+    RouterModule,
     MatToolbarModule,
-    MatSnackBarModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule
-  ]
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatButtonModule,
+    MatDividerModule,
+    LayoutModule
+  ],
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
-  constructor(private authService: AuthService, private router: Router) {}
+export class NavbarComponent implements OnInit {
+  isSmallScreen = false;
+  isAdmin = false;
 
-  get isAuthenticated(): boolean {
-    return this.authService.isAuthenticated();
-  }
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private authService: AuthService
+  ) {}
 
-  get role(): string | null {
-    return this.authService.getRole();
-  }
+  ngOnInit(): void {
+    this.breakpointObserver
+      .observe([Breakpoints.Handset, Breakpoints.Tablet])
+      .subscribe(result => {
+        this.isSmallScreen = result.matches;
+      });
 
-  logout(): void {
-    this.authService.logout();
-    this.router.navigate(['/']);
-  }
-
-  goToLogin(): void {
-    this.router.navigate(['/login']);
-  }
-
-  goToRegister(): void {
-    this.router.navigate(['/register']);
-  }
-
-  agregarNuevaMascota(): void {
-    this.router.navigate(['/mascotas/nueva']);
+    // Detectar si es admin
+    const role = this.authService.getRole();
+    this.isAdmin = role === 'admin';
   }
 }

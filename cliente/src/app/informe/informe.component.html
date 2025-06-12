@@ -1,26 +1,41 @@
-<div class="informe-container">
-    <section class="encabezado mat-elevation-z2">
-      <h2>{{ nombreConsulta }}</h2>
-      <p>{{ datosCentro }}</p>
-    </section>
-  
-    <section class="contenido mat-elevation-z2">
-      <div class="mascota-info">
-        <img [src]="mascota.imagen" alt="Imagen de la mascota">
-        <div class="datos">
-          <p><strong>Nombre:</strong> {{ mascota.nombre }}</p>
-          <p><strong>Especie:</strong> {{ mascota.especie }}</p>
-          <p><strong>Raza:</strong> {{ mascota.raza }}</p>
-          <p><strong>Edad:</strong> {{ mascota.edad }}</p>
-        </div>
-      </div>
-  
-      <div class="motivo-consulta">
-        <h3>Motivo de la consulta</h3>
-        <div class="motivo-texto">
-          {{ motivo }}
-        </div>
-        <button mat-raised-button color="accent" (click)="generarPDF()">Generar PDF</button>
-      </div>
-    </section>
+<div #contenidoInforme class="informe-container">
+  <h1>{{ datosCentro }}</h1>
+  <h2>{{ nombreConsulta }}</h2>
+  <hr>
+  <h3>Información de la Mascota</h3>
+  <p><strong>Nombre:</strong> {{ mascota.nombre }}</p>
+  <p><strong>Especie:</strong> {{ mascota.especie }}</p>
+  <p><strong>Raza:</strong> {{ mascota.raza }}</p>
+  <p><strong>Edad:</strong> {{ mascota.edad }}</p>
+  <img [src]="mascota.imagen" alt="Foto de la mascota" width="200">
+  <hr>
+  <h3>Motivo de consulta</h3>
+  <p>{{ motivo }}</p>
+</div>
+
+<!-- Botón para generar el PDF -->
+<button (click)="generarPDF()">Descargar Informe en PDF</button>
+
+
+  <!-- Footer -->
+<footer class="footer">
+  <div class="footer-text">
+    <div class="social-links">
+      <a href="https://www.instagram.com/clinicapatitasfelices" target="_blank">
+        <i class="fab fa-instagram"></i> &#64;clinicapatitasfelices
+      </a>
+      <a href="https://www.facebook.com/clinicapatitasfelices" target="_blank">
+        <i class="fab fa-facebook"></i> &#64;clinicapatitasfelices
+      </a>
+      <a href="https://www.twitter.com/clinicapatitasfelices" target="_blank">
+        <i class="fab fa-twitter"></i> &#64;clinicapatitasfelices
+      </a>
+    </div>
+    <div>
+      Contacto: patitasfelices&#64;clinicaveterinaria.com
+    </div>
+    <div>
+      Debe aceptar términos y condiciones
+    </div>
   </div>
+</footer>

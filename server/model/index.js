@@ -12,11 +12,12 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 // Importación de modelos
+db.Usuario = require("./userModel.js")(sequelize, Sequelize);
+db.Cliente = require("./clientModel.js")(sequelize, Sequelize);
 db.Mascota = require("./mascotaModel.js")(sequelize, Sequelize);
 db.Veterinario = require("./veterinarioModel.js")(sequelize, Sequelize);
 db.Consulta = require("./consultaModel.js")(sequelize, Sequelize);
 db.Clinica = require("./clinicaModel.js")(sequelize, Sequelize);
-db.Cliente = require("./clientModel.js")(sequelize, Sequelize);
 db.Enfermedad = require("./enfermedadModel.js")(sequelize, Sequelize);
 db.Prueba = require("./pruebaModel.js")(sequelize, Sequelize);
 db.Tratamiento = require("./tratamientoModel.js")(sequelize, Sequelize);
@@ -24,37 +25,40 @@ db.Vacuna = require("./vacunaModel.js")(sequelize, Sequelize);
 
 // Relaciones
 
+// Usuario - Cliente (1:1)
+db.Usuario.hasOne(db.Cliente, { foreignKey: "usuarioId" });
+db.Cliente.belongsTo(db.Usuario, { foreignKey: "usuarioId" });
+
 // Cliente - Mascota
-Cliente.hasMany(Mascota, { foreignKey: "clienteId" });
-Mascota.belongsTo(Cliente, { foreignKey: "clienteId" });
+db.Cliente.hasMany(db.Mascota, { foreignKey: "clienteId" });
+db.Mascota.belongsTo(db.Cliente, { foreignKey: "clienteId" });
 
 // Mascota - Vacuna (N:M)
-Mascota.belongsToMany(Vacuna, { through: "MascotaVacuna" });
-Vacuna.belongsToMany(Mascota, { through: "MascotaVacuna" });
+db.Mascota.belongsToMany(db.Vacuna, { through: "MascotaVacuna" });
+db.Vacuna.belongsToMany(db.Mascota, { through: "MascotaVacuna" });
 
 // Centro (Clinica) - Veterinario
-Clinica.hasMany(Veterinario, { foreignKey: "clinicaId" });
-Veterinario.belongsTo(Clinica, { foreignKey: "clinicaId" });
+db.Clinica.hasMany(db.Veterinario, { foreignKey: "clinicaId" });
+db.Veterinario.belongsTo(db.Clinica, { foreignKey: "clinicaId" });
 
 // Veterinario - Consulta
-Veterinario.hasMany(Consulta, { foreignKey: "veterinarioDni", sourceKey: "dni" });
-Consulta.belongsTo(Veterinario, { foreignKey: "veterinarioDni", targetKey: "dni" });
+db.Veterinario.hasMany(db.Consulta, { foreignKey: "veterinarioDni", sourceKey: "dni" });
+db.Consulta.belongsTo(db.Veterinario, { foreignKey: "veterinarioDni", targetKey: "dni" });
 
 // Mascota - Enfermedad (N:M)
-Mascota.belongsToMany(Enfermedad, { through: "MascotaEnfermedad" });
-Enfermedad.belongsToMany(Mascota, { through: "MascotaEnfermedad" });
+db.Mascota.belongsToMany(db.Enfermedad, { through: "MascotaEnfermedad" });
+db.Enfermedad.belongsToMany(db.Mascota, { through: "MascotaEnfermedad" });
 
 // Enfermedad - Prueba (N:M)
-Enfermedad.belongsToMany(Prueba, { through: "EnfermedadPrueba" });
-Prueba.belongsToMany(Enfermedad, { through: "EnfermedadPrueba" });
+db.Enfermedad.belongsToMany(db.Prueba, { through: "EnfermedadPrueba" });
+db.Prueba.belongsToMany(db.Enfermedad, { through: "EnfermedadPrueba" });
 
 // Enfermedad - Tratamiento (N:M)
-Enfermedad.belongsToMany(Tratamiento, { through: "EnfermedadTratamiento" });
-Tratamiento.belongsToMany(Enfermedad, { through: "EnfermedadTratamiento" });
+db.Enfermedad.belongsToMany(db.Tratamiento, { through: "EnfermedadTratamiento" });
+db.Tratamiento.belongsToMany(db.Enfermedad, { through: "EnfermedadTratamiento" });
 
 // Consulta - Mascota
-Mascota.hasMany(Consulta, { foreignKey: "mascotaId" });
-Consulta.belongsTo(Mascota, { foreignKey: "mascotaId" });
-
+db.Mascota.hasMany(db.Consulta, { foreignKey: "mascotaId" });
+db.Consulta.belongsTo(db.Mascota, { foreignKey: "mascotaId" });
 
 module.exports = db;

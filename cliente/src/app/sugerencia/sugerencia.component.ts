@@ -32,9 +32,8 @@ export class SugerenciaComponent {
   enviarSugerencia(): void {
     if (this.sugerenciaForm.valid) {
       console.log('Sugerencia enviada:', this.sugerenciaForm.value);
-      //tengo que ver la lÃ³gica para enviar
+      //tengo que ver la lógica para enviar
       this.sugerenciaForm.reset();
     }
   }
 }
-

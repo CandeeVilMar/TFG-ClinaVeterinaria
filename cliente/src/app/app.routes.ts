@@ -5,6 +5,7 @@ import { RegisterComponent } from './registro/register.component';
 import { InfoSegurosComponent } from './infoSeguros/infoSeguros.component';
 import { InformacionVetComponent } from './informacionVet/informacionVet.component';
 import { SugerenciaComponent } from './sugerencia/sugerencia.component';
+import { AgregarMascotaComponent } from './agregarMascota/agregarMascota.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
@@ -13,6 +14,7 @@ export const routes: Routes = [
   { path: 'registro', component: RegisterComponent },
   { path: 'infoSeguros', component: InfoSegurosComponent },
   { path: 'informacionVet', component: InformacionVetComponent },
-  { path: 'sugerencias', component: SugerenciaComponent },
+  { path: 'sugerencia', component: SugerenciaComponent },
+  { path: 'agregar-mascota', component: AgregarMascotaComponent }, 
   { path: '**', redirectTo: 'inicio' }
 ];
