@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private api = 'http://localhost:3000/login';
+  private api = 'http://server:3000/api/login';
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -22,6 +22,15 @@ export class AuthService {
 
     const payload = JSON.parse(atob(token.split('.')[1]));
     return payload.rol;
+  }
+
+  getRole(): string | null {
+    return this.obtenerRolDesdeToken();
+  }
+
+  isAuthenticated(): boolean {
+    const token = localStorage.getItem('token');
+    return !!token;
   }
 
   logout() {

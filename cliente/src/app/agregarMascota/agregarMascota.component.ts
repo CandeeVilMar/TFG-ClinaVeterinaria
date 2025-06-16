@@ -28,16 +28,16 @@ export class AgregarMascotaComponent {
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.mascotaForm = this.fb.group({
       nombre: ['', Validators.required],
-      especie: ['', Validators.required],
-      raza: [''],
-      edad: [''],
-      propietario: ['']
+      fecha_nacimiento: ['', Validators.required],
+      raza: ['', Validators.required],
+      tipo: ['', Validators.required],
+      peso: ['', Validators.required]
     });
   }
 
     onSubmit() {
     if (this.mascotaForm.valid) {
-      this.http.post('http://localhost:3000/mascotas', this.mascotaForm.value)
+      this.http.post('http://localhost:3000/api/mascotas', this.mascotaForm.value)
         .subscribe({
           next: (response) => {
             console.log('Mascota guardada:', response);

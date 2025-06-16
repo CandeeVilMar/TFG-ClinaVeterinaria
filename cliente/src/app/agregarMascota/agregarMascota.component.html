@@ -8,23 +8,23 @@
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Especie</mat-label>
-      <input matInput formControlName="especie" required />
+      <mat-label>Fecha de Nacimiento</mat-label>
+      <input matInput type="date" formControlName="fecha_nacimiento" required />
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Raza</mat-label>
-      <input matInput formControlName="raza" />
+      <input matInput formControlName="raza" required />
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Edad</mat-label>
-      <input matInput type="number" formControlName="edad" />
+      <mat-label>Tipo</mat-label>
+      <input matInput formControlName="tipo" required />
     </mat-form-field>
 
     <mat-form-field appearance="fill">
-      <mat-label>Propietario</mat-label>
-      <input matInput formControlName="propietario" />
+      <mat-label>Peso (kg)</mat-label>
+      <input matInput type="number" step="0.1" formControlName="peso" required />
     </mat-form-field>
 
     <button mat-raised-button color="primary" type="submit" [disabled]="mascotaForm.invalid">

@@ -43,7 +43,7 @@ export class RegisterComponent {
   };
   
 
-  private apiUrl: string = 'http://localhost:3000/users';
+  private apiUrl: string = 'http://server:3000/api/clientes';
   constructor(private http: HttpClient) {}
 
   registro(): void {

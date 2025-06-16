@@ -23,18 +23,27 @@ exports.getOne = async (req, res) => {
 
 exports.create = async (req, res) => {
   try {
-    const { nombre, especie, raza, edad, propietario } = req.body;
+    console.log("Datos recibidos:", req.body);
+    const { nombre, fecha_nacimiento, raza, tipo, peso } = req.body;
+    console.log("Campos extraídos:", { nombre, fecha_nacimiento, raza, tipo, peso });
 
-    if (!nombre || !especie) {
-      return res.status(400).json({ error: "Nombre y especie son obligatorios" });
+    if (!nombre || !fecha_nacimiento || !raza || !tipo || !peso) {
+      console.log("Validación fallida - campos faltantes:", {
+        nombre: !nombre,
+        fecha_nacimiento: !fecha_nacimiento,
+        raza: !raza,
+        tipo: !tipo,
+        peso: !peso
+      });
+      return res.status(400).json({ error: "Todos los campos son obligatorios: nombre, fecha_nacimiento, raza, tipo, peso" });
     }
 
     const newItem = await Mascota.create({
       nombre,
-      especie,
-      raza: raza || null,
-      edad: edad || null,
-      propietario: propietario || null,
+      fecha_nacimiento,
+      raza,
+      tipo,
+      peso
     });
 
     res.status(201).json(newItem);
@@ -46,10 +55,10 @@ exports.create = async (req, res) => {
 
 exports.update = async (req, res) => {
   try {
-    const { nombre, especie, raza, edad, propietario } = req.body;
+    const { nombre, fecha_nacimiento, raza, tipo, peso } = req.body;
 
     const [updated] = await Mascota.update(
-      { nombre, especie, raza, edad, propietario },
+      { nombre, fecha_nacimiento, raza, tipo, peso },
       { where: { id: req.params.id } }
     );
 
@@ -59,6 +68,7 @@ exports.update = async (req, res) => {
 
     res.sendStatus(204);
   } catch (error) {
+    console.error("Error al actualizar mascota:", error);
     res.status(500).json({ error: "Error al actualizar la mascota" });
   }
 };

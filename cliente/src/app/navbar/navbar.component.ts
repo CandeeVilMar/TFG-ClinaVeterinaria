@@ -30,6 +30,7 @@ import { AuthService } from '../services/auth.service';
 export class NavbarComponent implements OnInit {
   isSmallScreen = false;
   isAdmin = false;
+  isAuthenticated = false;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -43,8 +44,17 @@ export class NavbarComponent implements OnInit {
         this.isSmallScreen = result.matches;
       });
 
+    // Detectar si está autenticado
+    this.isAuthenticated = this.authService.isAuthenticated();
+    
     // Detectar si es admin
     const role = this.authService.getRole();
     this.isAdmin = role === 'admin';
+  }
+
+  logout() {
+    this.authService.logout();
+    this.isAuthenticated = false;
+    this.isAdmin = false;
   }
 }

@@ -3,6 +3,8 @@ services:
     image: mysql
     container_name: mysql
     restart: always
+    ports:
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: clinica_veterinaria
@@ -14,6 +16,8 @@ services:
       context: .
       dockerfile: server/Dockerfile
     container_name: server
+    ports:
+      - "3000:3000"
     depends_on:
       - db
     environment:

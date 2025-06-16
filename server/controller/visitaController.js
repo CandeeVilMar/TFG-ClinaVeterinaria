@@ -1,4 +1,4 @@
-const { Visita, Vacuna, Tratamiento } = require("../models");
+const { Visita, Vacuna, Tratamiento } = require("../model");
 
 exports.getAll = async (req, res) => {
   const data = await Visita.findAll({

@@ -11,13 +11,18 @@
       <a mat-list-item routerLink="/informacionVet" (click)="sidenav.close()">Información Veterinario</a>
       <a mat-list-item routerLink="/infoSeguros" (click)="sidenav.close()">Información Seguros</a>
       <a mat-list-item routerLink="/sugerencia" (click)="sidenav.close()">Sugerencia</a>
-      <a mat-list-item routerLink="/registro" (click)="sidenav.close()">Registro</a>
-      <a mat-list-item routerLink="/login" (click)="sidenav.close()">Iniciar Sesión</a>
+      
+      <!-- Enlaces solo cuando NO está autenticado -->
+      <a *ngIf="!isAuthenticated" mat-list-item routerLink="/registro" (click)="sidenav.close()">Registro</a>
+      <a *ngIf="!isAuthenticated" mat-list-item routerLink="/login" (click)="sidenav.close()">Iniciar Sesión</a>
 
-      <!-- Enlace solo para admin -->
+      <!-- Enlaces solo para usuarios autenticados -->
       <a *ngIf="isAdmin" mat-list-item routerLink="/agregar-mascota" (click)="sidenav.close()">
         Agregar Mascota
       </a>
+      
+      <!-- Botón de logout solo cuando está autenticado -->
+      <a *ngIf="isAuthenticated" mat-list-item (click)="logout(); sidenav.close()">Cerrar Sesión</a>
     </mat-nav-list>
   </mat-sidenav>
 
@@ -32,11 +37,16 @@
         <button mat-button routerLink="/informacionVet">Información Veterinario</button>
         <button mat-button routerLink="/infoSeguros">Información Seguros</button>
         <button mat-button routerLink="/sugerencia">Sugerencia</button>
-        <button mat-button routerLink="/registro">Registro</button>
-        <button mat-button routerLink="/login">Iniciar Sesión</button>
+        
+        <!-- Botones solo cuando NO está autenticado -->
+        <button *ngIf="!isAuthenticated" mat-button routerLink="/registro">Registro</button>
+        <button *ngIf="!isAuthenticated" mat-button routerLink="/login">Iniciar Sesión</button>
 
-        <!-- Botón solo para admin -->
+        <!-- Botones solo para usuarios autenticados -->
         <button *ngIf="isAdmin" mat-button routerLink="/agregar-mascota">Agregar Mascota</button>
+        
+        <!-- Botón de logout solo cuando está autenticado -->
+        <button *ngIf="isAuthenticated" mat-button (click)="logout()">Cerrar Sesión</button>
       </nav>
 
       <button mat-icon-button (click)="sidenav.toggle()" class="menu-button" aria-label="Menú">
